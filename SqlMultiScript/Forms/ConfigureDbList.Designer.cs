@@ -40,11 +40,13 @@
             this.BtnOK = new System.Windows.Forms.Button();
             this.BtnAdd = new System.Windows.Forms.Button();
             this.BtnRemove = new System.Windows.Forms.Button();
+            this.BtnDeleteSql = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.BtnDeleteSql);
             this.groupBox1.Controls.Add(this.BtnAddSql);
             this.groupBox1.Controls.Add(this.TreeSqlServer);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -60,7 +62,7 @@
             this.BtnAddSql.Name = "BtnAddSql";
             this.BtnAddSql.Size = new System.Drawing.Size(259, 23);
             this.BtnAddSql.TabIndex = 1;
-            this.BtnAddSql.Text = "Add To SQL Server";
+            this.BtnAddSql.Text = "Add SQL Server";
             this.BtnAddSql.UseVisualStyleBackColor = true;
             this.BtnAddSql.Click += new System.EventHandler(this.BtnAddSql_Click);
             // 
@@ -159,6 +161,16 @@
             this.BtnRemove.UseVisualStyleBackColor = true;
             this.BtnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
             // 
+            // BtnDeleteSql
+            // 
+            this.BtnDeleteSql.Location = new System.Drawing.Point(6, 383);
+            this.BtnDeleteSql.Name = "BtnDeleteSql";
+            this.BtnDeleteSql.Size = new System.Drawing.Size(259, 23);
+            this.BtnDeleteSql.TabIndex = 3;
+            this.BtnDeleteSql.Text = "Delete SQL Server";
+            this.BtnDeleteSql.UseVisualStyleBackColor = true;
+            this.BtnDeleteSql.Click += new System.EventHandler(this.BtnDeleteSql_Click);
+            // 
             // ConfigureDbList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,5 +210,6 @@
         private System.Windows.Forms.Button BtnOK;
         private System.Windows.Forms.Button BtnAdd;
         private System.Windows.Forms.Button BtnRemove;
+        private System.Windows.Forms.Button BtnDeleteSql;
     }
 }

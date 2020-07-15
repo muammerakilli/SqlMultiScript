@@ -194,7 +194,7 @@ namespace SqlMultiScript.Class
 
         }
 
-        public void DeleteList(string listname)
+        public void DeleteList(string listname,string NodeName,string XmlFileName)
         {
             string XmlFile = Path.Combine(GlobalVariables.CurrentDir, listname + ".xml");
             if (File.Exists(XmlFile) == true)
@@ -203,11 +203,11 @@ namespace SqlMultiScript.Class
             }
 
        
-            XmlFile = Path.Combine(GlobalVariables.CurrentDir, GlobalVariables.DistiributionListXmlName);
+            XmlFile = Path.Combine(GlobalVariables.CurrentDir, XmlFileName);
  
             XmlDocument xml = new XmlDocument();
             xml.Load(XmlFile);
-            XmlNodeList xmlNodeList = xml.SelectNodes("/DistiributionList");
+            XmlNodeList xmlNodeList = xml.SelectNodes(NodeName);
 
             foreach (XmlNode xmlNode in xmlNodeList)
             {
@@ -215,22 +215,14 @@ namespace SqlMultiScript.Class
                 for (int i = 0; i < xmlNode.ChildNodes.Count; i++)
                 {
                     if (xmlNode.ChildNodes[i].InnerText == listname)
-                    {
-                        // xmlNode.ChildNodes[i].RemoveChild(xmlNode.ChildNodes[i].FirstChild);
+                    {                      
                         xmlNode.RemoveChild(xmlNode.ChildNodes[i]);
                     }
                 }
             }
 
             xml.Save(XmlFile);
-
-            //foreach (var elem in xDoc.Document.Descendants("ListName"))
-            //{                
-            //  elem.RemoveAll();
-            //}
-
-            //xDoc.Save(XmlFile);
-
+ 
         }
 
         public static string[] GetServerConnect(string text)

@@ -32,13 +32,9 @@ namespace SqlMultiScript.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExecF));
             this.SqlText = new ScintillaNET.Scintilla();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.BtnCompile = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listViewdb = new System.Windows.Forms.ListView();
             this.DbName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -53,6 +49,8 @@ namespace SqlMultiScript.Forms
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.BtnCompile = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -78,7 +76,7 @@ namespace SqlMultiScript.Forms
             // 
             // statusStrip1
             // 
-            this.statusStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.statusStrip1.BackColor = System.Drawing.Color.White;
             this.statusStrip1.Location = new System.Drawing.Point(0, 565);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1514, 22);
@@ -87,53 +85,27 @@ namespace SqlMultiScript.Forms
             // 
             // toolStrip1
             // 
+            this.toolStrip1.BackColor = System.Drawing.Color.White;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.BtnCompile,
-            this.toolStripButton2,
-            this.toolStripButton3});
+            this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1514, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1514, 26);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // BtnCompile
-            // 
-            this.BtnCompile.Image = ((System.Drawing.Image)(resources.GetObject("BtnCompile.Image")));
-            this.BtnCompile.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnCompile.Name = "BtnCompile";
-            this.BtnCompile.Size = new System.Drawing.Size(72, 22);
-            this.BtnCompile.Text = "Compile";
-            this.BtnCompile.Click += new System.EventHandler(this.BtnCompile_Click);
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(68, 22);
-            this.toolStripButton2.Text = "Execute";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(63, 22);
-            this.toolStripButton3.Text = "Cancel";
             // 
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.listViewdb);
             this.groupBox1.Controls.Add(this.BtnConfigure);
             this.groupBox1.Controls.Add(this.CmbListName);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox1.Location = new System.Drawing.Point(0, 25);
+            this.groupBox1.Location = new System.Drawing.Point(0, 26);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(310, 540);
+            this.groupBox1.Size = new System.Drawing.Size(310, 539);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Database Distribution List";
@@ -150,7 +122,7 @@ namespace SqlMultiScript.Forms
             this.listViewdb.HideSelection = false;
             this.listViewdb.Location = new System.Drawing.Point(12, 60);
             this.listViewdb.Name = "listViewdb";
-            this.listViewdb.Size = new System.Drawing.Size(292, 474);
+            this.listViewdb.Size = new System.Drawing.Size(292, 473);
             this.listViewdb.TabIndex = 2;
             this.listViewdb.UseCompatibleStateImageBehavior = false;
             this.listViewdb.View = System.Windows.Forms.View.Details;
@@ -205,8 +177,8 @@ namespace SqlMultiScript.Forms
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.groupBox3);
-            this.splitContainer1.Size = new System.Drawing.Size(1204, 419);
-            this.splitContainer1.SplitterDistance = 35;
+            this.splitContainer1.Size = new System.Drawing.Size(1204, 418);
+            this.splitContainer1.SplitterDistance = 34;
             this.splitContainer1.TabIndex = 5;
             // 
             // BtnAddFile
@@ -221,12 +193,14 @@ namespace SqlMultiScript.Forms
             // 
             // MessageView
             // 
-            this.MessageView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MessageView.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.MessageView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MessageView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.name,
             this.status});
             this.MessageView.ContextMenuStrip = this.contextMenuStrip1;
             this.MessageView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MessageView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.MessageView.FullRowSelect = true;
             this.MessageView.GridLines = true;
             this.MessageView.HideSelection = false;
@@ -240,12 +214,12 @@ namespace SqlMultiScript.Forms
             // name
             // 
             this.name.Text = "Database Name";
-            this.name.Width = 214;
+            this.name.Width = 300;
             // 
             // status
             // 
             this.status.Text = "Status";
-            this.status.Width = 238;
+            this.status.Width = 1500;
             // 
             // contextMenuStrip1
             // 
@@ -264,7 +238,7 @@ namespace SqlMultiScript.Forms
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(310, 25);
+            this.splitContainer2.Location = new System.Drawing.Point(310, 26);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -275,9 +249,29 @@ namespace SqlMultiScript.Forms
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.MessageView);
-            this.splitContainer2.Size = new System.Drawing.Size(1204, 540);
-            this.splitContainer2.SplitterDistance = 419;
+            this.splitContainer2.Size = new System.Drawing.Size(1204, 539);
+            this.splitContainer2.SplitterDistance = 418;
             this.splitContainer2.TabIndex = 6;
+            // 
+            // BtnCompile
+            // 
+            this.BtnCompile.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.BtnCompile.Image = global::SqlMultiScript.Properties.Resources.correct;
+            this.BtnCompile.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnCompile.Name = "BtnCompile";
+            this.BtnCompile.Size = new System.Drawing.Size(79, 23);
+            this.BtnCompile.Text = "Compile";
+            this.BtnCompile.Click += new System.EventHandler(this.BtnCompile_Click);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.toolStripButton2.Image = global::SqlMultiScript.Properties.Resources.next;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(75, 23);
+            this.toolStripButton2.Text = "Execute";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // ExecF
             // 
@@ -323,7 +317,6 @@ namespace SqlMultiScript.Forms
         private System.Windows.Forms.ListView listViewdb;
         private System.Windows.Forms.ToolStripButton BtnCompile;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ColumnHeader DbName;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button BtnAddFile;

@@ -87,7 +87,7 @@ namespace SqlMultiScript.Forms
             for (int i = 0; i < dblist.Count; i++)
             {
                 listViewdb.Items.Add(dblist[i]);
-                listViewdb.Items[i].Checked = true;                
+                listViewdb.Items[i].Checked = true;
             }
 
 

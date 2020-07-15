@@ -179,13 +179,20 @@ namespace SqlMultiScript.Forms
         private void BtnDeleteList_Click(object sender, EventArgs e)
         {
             XmlOperations xml = new XmlOperations();
-            xml.DeleteList(CmbList.Text);
+            xml.DeleteList(CmbList.Text, "/DistiributionList", GlobalVariables.DistiributionListXmlName);
 
             ListDs.Items.Clear();
             CmbList.Text = String.Empty;
             LoadData(true, true);
         }
 
-       
+        private void BtnDeleteSql_Click(object sender, EventArgs e)
+        {
+            XmlOperations xml = new XmlOperations();
+            xml.DeleteList(TreeSqlServer.SelectedNode.Text, "/SqlServerList",GlobalVariables.ServerListXmlName);
+
+            CmbList.Text = String.Empty;
+            LoadData(true, true);
+        }
     }
 }
