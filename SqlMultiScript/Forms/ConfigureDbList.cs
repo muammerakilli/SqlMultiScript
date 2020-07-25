@@ -10,6 +10,7 @@ namespace SqlMultiScript.Forms
     {
         string AttributesName = String.Empty;
         string parentNode = string.Empty;
+        public static bool ConfigureListSave = false;
 
         List<XmlOperations> list = new List<XmlOperations>();
         List<XmlOperations> dlist = new List<XmlOperations>();
@@ -48,7 +49,7 @@ namespace SqlMultiScript.Forms
             xml.SaveList(CmbList,ListDs,parentNode);
 
             parentNode = String.Empty;
-
+            ConfigureListSave = true;
             this.Close();
         }
 
@@ -193,6 +194,16 @@ namespace SqlMultiScript.Forms
 
             CmbList.Text = String.Empty;
             LoadData(true, true);
+        }
+
+        private void TreeSqlServer_DoubleClick(object sender, EventArgs e)
+        {
+            BtnAdd_Click(BtnNewList,EventArgs.Empty);
+        }
+
+        private void ListDs_DoubleClick(object sender, EventArgs e)
+        {
+            BtnRemove_Click(ListDs,EventArgs.Empty);
         }
     }
 }

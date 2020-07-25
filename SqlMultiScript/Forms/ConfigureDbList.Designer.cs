@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigureDbList));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BtnDeleteSql = new System.Windows.Forms.Button();
             this.BtnAddSql = new System.Windows.Forms.Button();
             this.TreeSqlServer = new System.Windows.Forms.TreeView();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,7 +42,6 @@
             this.BtnOK = new System.Windows.Forms.Button();
             this.BtnAdd = new System.Windows.Forms.Button();
             this.BtnRemove = new System.Windows.Forms.Button();
-            this.BtnDeleteSql = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +56,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Database";
+            // 
+            // BtnDeleteSql
+            // 
+            this.BtnDeleteSql.Location = new System.Drawing.Point(6, 383);
+            this.BtnDeleteSql.Name = "BtnDeleteSql";
+            this.BtnDeleteSql.Size = new System.Drawing.Size(259, 23);
+            this.BtnDeleteSql.TabIndex = 3;
+            this.BtnDeleteSql.Text = "Delete SQL Server";
+            this.BtnDeleteSql.UseVisualStyleBackColor = true;
+            this.BtnDeleteSql.Click += new System.EventHandler(this.BtnDeleteSql_Click);
             // 
             // BtnAddSql
             // 
@@ -74,6 +85,7 @@
             this.TreeSqlServer.TabIndex = 2;
             this.TreeSqlServer.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.TreeSqlServer_AfterExpand);
             this.TreeSqlServer.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeSqlServer_AfterSelect);
+            this.TreeSqlServer.DoubleClick += new System.EventHandler(this.TreeSqlServer_DoubleClick);
             // 
             // label1
             // 
@@ -111,6 +123,7 @@
             this.ListDs.Name = "ListDs";
             this.ListDs.Size = new System.Drawing.Size(326, 277);
             this.ListDs.TabIndex = 4;
+            this.ListDs.DoubleClick += new System.EventHandler(this.ListDs_DoubleClick);
             // 
             // CmbList
             // 
@@ -161,16 +174,6 @@
             this.BtnRemove.UseVisualStyleBackColor = true;
             this.BtnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
             // 
-            // BtnDeleteSql
-            // 
-            this.BtnDeleteSql.Location = new System.Drawing.Point(6, 383);
-            this.BtnDeleteSql.Name = "BtnDeleteSql";
-            this.BtnDeleteSql.Size = new System.Drawing.Size(259, 23);
-            this.BtnDeleteSql.TabIndex = 3;
-            this.BtnDeleteSql.Text = "Delete SQL Server";
-            this.BtnDeleteSql.UseVisualStyleBackColor = true;
-            this.BtnDeleteSql.Click += new System.EventHandler(this.BtnDeleteSql_Click);
-            // 
             // ConfigureDbList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -186,6 +189,7 @@
             this.Controls.Add(this.BtnNewList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConfigureDbList";
             this.Text = "Configure Database Distribution List";
             this.Activated += new System.EventHandler(this.ConfigureDbList_Activated);

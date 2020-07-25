@@ -68,6 +68,16 @@ namespace SqlMultiScript.Forms
             }
         }
 
+        private void ExecF_Activated(object sender, EventArgs e)
+        {
+            if (ConfigureDbList.ConfigureListSave==true)
+            {
+                CmbListName_SelectedIndexChanged(CmbListName, EventArgs.Empty);
+                ConfigureDbList.ConfigureListSave = false;
+            }
+            
+        }
+
 
         private void BtnConfigure_Click(object sender, EventArgs e)
         {
@@ -147,7 +157,7 @@ namespace SqlMultiScript.Forms
                             foreach (var err in errors)
                             {
                                 MessageView.Items.Add(dbname).SubItems.Add(err.ToString());
-                            }
+                             }
                         }                                             
                     }
                 }
@@ -162,5 +172,7 @@ namespace SqlMultiScript.Forms
         {
             MessageView.Items.Clear();
         }
+
+     
     }
 }

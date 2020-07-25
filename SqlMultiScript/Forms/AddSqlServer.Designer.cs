@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddSqlServer));
             this.label1 = new System.Windows.Forms.Label();
             this.TxtServer = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -170,6 +171,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.TxtServer);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddSqlServer";
             this.Text = "Add a SQL Server ";
             this.Load += new System.EventHandler(this.AddSqlServer_Load);
