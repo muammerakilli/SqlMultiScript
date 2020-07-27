@@ -173,6 +173,19 @@ namespace SqlMultiScript.Forms
             MessageView.Items.Clear();
         }
 
-     
+        private void BtnClear_Click(object sender, EventArgs e)
+        {
+            SqlText.Text = String.Empty;
+        }
+
+       
+
+        private void SqlText_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5)
+            {
+                toolStripButton2_Click(toolStripButton2, EventArgs.Empty);
+            }
+        }
     }
 }

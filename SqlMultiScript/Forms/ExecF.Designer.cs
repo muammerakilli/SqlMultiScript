@@ -45,6 +45,8 @@ namespace SqlMultiScript.Forms
             this.CmbListName = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.BtnSave = new System.Windows.Forms.Button();
+            this.BtnClear = new System.Windows.Forms.Button();
             this.BtnAddFile = new System.Windows.Forms.Button();
             this.MessageView = new System.Windows.Forms.ListView();
             this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -74,6 +76,7 @@ namespace SqlMultiScript.Forms
             this.SqlText.Name = "SqlText";
             this.SqlText.Size = new System.Drawing.Size(1198, 361);
             this.SqlText.TabIndex = 0;
+            this.SqlText.KeyUp += new System.Windows.Forms.KeyEventHandler(this.SqlText_KeyUp);
             // 
             // statusStrip1
             // 
@@ -102,24 +105,25 @@ namespace SqlMultiScript.Forms
             this.BtnCompile.Image = global::SqlMultiScript.Properties.Resources.correct;
             this.BtnCompile.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BtnCompile.Name = "BtnCompile";
-            this.BtnCompile.Size = new System.Drawing.Size(79, 23);
-            this.BtnCompile.Text = "Compile";
+            this.BtnCompile.Size = new System.Drawing.Size(100, 23);
+            this.BtnCompile.Text = "Parse Script";
             this.BtnCompile.Click += new System.EventHandler(this.BtnCompile_Click);
             // 
             // toolStripButton2
             // 
+            this.toolStripButton2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.toolStripButton2.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.toolStripButton2.Image = global::SqlMultiScript.Properties.Resources.next;
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(75, 23);
-            this.toolStripButton2.Text = "Execute";
+            this.toolStripButton2.Size = new System.Drawing.Size(130, 23);
+            this.toolStripButton2.Text = "Execute Now(F5)";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
-            this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.BackColor = System.Drawing.Color.LightGray;
             this.groupBox1.Controls.Add(this.listViewdb);
             this.groupBox1.Controls.Add(this.BtnConfigure);
             this.groupBox1.Controls.Add(this.CmbListName);
@@ -155,12 +159,13 @@ namespace SqlMultiScript.Forms
             // 
             // BtnConfigure
             // 
-            this.BtnConfigure.Location = new System.Drawing.Point(229, 19);
+            this.BtnConfigure.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.BtnConfigure.Location = new System.Drawing.Point(229, 3);
             this.BtnConfigure.Name = "BtnConfigure";
-            this.BtnConfigure.Size = new System.Drawing.Size(75, 23);
+            this.BtnConfigure.Size = new System.Drawing.Size(75, 51);
             this.BtnConfigure.TabIndex = 1;
             this.BtnConfigure.Text = "Configure";
-            this.BtnConfigure.UseVisualStyleBackColor = true;
+            this.BtnConfigure.UseVisualStyleBackColor = false;
             this.BtnConfigure.Click += new System.EventHandler(this.BtnConfigure_Click);
             // 
             // CmbListName
@@ -192,6 +197,8 @@ namespace SqlMultiScript.Forms
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.BtnSave);
+            this.splitContainer1.Panel1.Controls.Add(this.BtnClear);
             this.splitContainer1.Panel1.Controls.Add(this.BtnAddFile);
             // 
             // splitContainer1.Panel2
@@ -202,26 +209,49 @@ namespace SqlMultiScript.Forms
             this.splitContainer1.SplitterDistance = 34;
             this.splitContainer1.TabIndex = 5;
             // 
+            // BtnSave
+            // 
+            this.BtnSave.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.BtnSave.Location = new System.Drawing.Point(184, 3);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(83, 23);
+            this.BtnSave.TabIndex = 2;
+            this.BtnSave.Text = "Save";
+            this.BtnSave.UseVisualStyleBackColor = false;
+            // 
+            // BtnClear
+            // 
+            this.BtnClear.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.BtnClear.Location = new System.Drawing.Point(95, 3);
+            this.BtnClear.Name = "BtnClear";
+            this.BtnClear.Size = new System.Drawing.Size(83, 23);
+            this.BtnClear.TabIndex = 1;
+            this.BtnClear.Text = "Clear";
+            this.BtnClear.UseVisualStyleBackColor = false;
+            this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
+            // 
             // BtnAddFile
             // 
-            this.BtnAddFile.Location = new System.Drawing.Point(4, 3);
+            this.BtnAddFile.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.BtnAddFile.Location = new System.Drawing.Point(6, 3);
             this.BtnAddFile.Name = "BtnAddFile";
             this.BtnAddFile.Size = new System.Drawing.Size(83, 23);
             this.BtnAddFile.TabIndex = 0;
             this.BtnAddFile.Text = "Add File";
-            this.BtnAddFile.UseVisualStyleBackColor = true;
+            this.BtnAddFile.UseVisualStyleBackColor = false;
             this.BtnAddFile.Click += new System.EventHandler(this.BtnAddFile_Click);
             // 
             // MessageView
             // 
-            this.MessageView.BackColor = System.Drawing.Color.White;
+            this.MessageView.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.MessageView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MessageView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.name,
             this.status});
             this.MessageView.ContextMenuStrip = this.contextMenuStrip1;
             this.MessageView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MessageView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.MessageView.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.MessageView.ForeColor = System.Drawing.Color.Firebrick;
             this.MessageView.FullRowSelect = true;
             this.MessageView.GridLines = true;
             this.MessageView.HideSelection = false;
@@ -279,7 +309,7 @@ namespace SqlMultiScript.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1514, 587);
             this.Controls.Add(this.splitContainer2);
             this.Controls.Add(this.groupBox1);
@@ -330,5 +360,7 @@ namespace SqlMultiScript.Forms
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.Button BtnSave;
+        private System.Windows.Forms.Button BtnClear;
     }
 }
