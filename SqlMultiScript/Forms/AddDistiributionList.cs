@@ -35,10 +35,12 @@ namespace SqlMultiScript.Forms
             XmlOperations xml = new XmlOperations("DistiributionList.xml", TxtListName.Text);
             xml.AddDistiributionList();
 
-            RefreshList= true;
+            RefreshList = true;
+ 
+     
 
             this.Close();
-
+ 
         }
     }
 }

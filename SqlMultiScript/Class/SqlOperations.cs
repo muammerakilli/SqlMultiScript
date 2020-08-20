@@ -15,7 +15,6 @@ namespace SqlMultiScript.Class
         public string Username { get; set; }
         public string authenticationmode { get; set; }
 
-
         public SqlOperations(params string[] args)
         {
             Servername = args[0];

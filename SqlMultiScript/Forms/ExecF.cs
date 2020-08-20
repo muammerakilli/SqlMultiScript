@@ -59,6 +59,26 @@ namespace SqlMultiScript.Forms
 
         private void ExecF_Load(object sender, EventArgs e)
         {
+            ComboListFill();
+        }
+
+        private void ExecF_Activated(object sender, EventArgs e)
+        {
+            if (ConfigureDbList.ConfigureListSave==true)
+            {
+                CmbListName.Text = String.Empty;
+                CmbListName.Items.Clear();
+                listViewdb.Items.Clear();
+
+                ComboListFill();
+
+                ConfigureDbList.ConfigureListSave = false;
+            }
+            
+        }
+
+        private void ComboListFill()
+        {
             List<XmlOperations> dlist = new List<XmlOperations>();
             XmlOperations xml2 = new XmlOperations(GlobalVariables.DistiributionListXmlName);
             dlist = xml2.GetDList(GlobalVariables.ServerListXmlName);
@@ -66,16 +86,6 @@ namespace SqlMultiScript.Forms
             {
                 CmbListName.Items.Add(item.ListName);
             }
-        }
-
-        private void ExecF_Activated(object sender, EventArgs e)
-        {
-            if (ConfigureDbList.ConfigureListSave==true)
-            {
-                CmbListName_SelectedIndexChanged(CmbListName, EventArgs.Empty);
-                ConfigureDbList.ConfigureListSave = false;
-            }
-            
         }
 
 

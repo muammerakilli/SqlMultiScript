@@ -12,7 +12,7 @@ namespace SqlMultiScript.Class
 
         static string ServerList = "ServerList.xml";
         static string DistiributionList = "DistiributionList.xml";
-        static string workingDir = Directory.GetCurrentDirectory();
+        static readonly string workingDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +@"\SqlMultiScript";
 
         public static string ServerListXmlName { get => ServerList; }
         public static string DistiributionListXmlName { get => DistiributionList; }

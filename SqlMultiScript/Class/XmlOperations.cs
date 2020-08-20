@@ -148,7 +148,7 @@ namespace SqlMultiScript.Class
                 }
 
                 //create a new file in the working directory
-                XmlTextWriter textWriter = new XmlTextWriter(cmb.Text + ".xml", null);
+                XmlTextWriter textWriter = new XmlTextWriter(XmlFile, null);
                 textWriter.WriteStartElement("Lists");
                 textWriter.WriteEndElement();
                 textWriter.Close();
