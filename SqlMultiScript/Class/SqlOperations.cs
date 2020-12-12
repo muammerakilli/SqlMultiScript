@@ -58,7 +58,7 @@ namespace SqlMultiScript.Class
         public static List<string> GetDbName(string servername, string username, string password)
         {
             List<string> list = new List<string>();
-            SqlConnection con = new SqlConnection("Server = " + servername + "; Database=master;        User Id = " + username + "; Password = " + password + ";");
+            SqlConnection con = new SqlConnection("Server = " + servername + "; Database=master;User Id = " + username + "; Password = " + password + ";");
 
             try
             {
@@ -69,14 +69,16 @@ namespace SqlMultiScript.Class
                     throw new ExceptionOperations("Connection failed");
                 }
 
-                string query = "SELECT (@@servername+'.dbo.'+name)name  FROM sys.sysdatabases ";
+                //string query = "SELECT (@@servername+'.dbo.'+name)name  FROM sys.sysdatabases ";
+                string query = "SELECT name  FROM sys.sysdatabases ";
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        list.Add(reader.GetString(0));
+                        string db = "[" + servername + "]." + reader.GetString(0);
+                        list.Add(db);
                     }
                 }
 

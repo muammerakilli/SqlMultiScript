@@ -1,11 +1,5 @@
 ﻿using SqlMultiScript.Class;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SqlMultiScript.Forms
@@ -41,13 +35,13 @@ namespace SqlMultiScript.Forms
             else
                 check = "Windows";
 
-            XmlOperations x = new XmlOperations("ServerList.xml",TxtServer.Text, check, TxtUsername.Text,TxtPassword.Text);
+            XmlOperations x = new XmlOperations("ServerList.xml", TxtServer.Text, check, TxtUsername.Text, TxtPassword.Text);
             x.AddSqlServerList();
 
             RefreshList = true;
 
             this.Close();
-            
+
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -57,7 +51,7 @@ namespace SqlMultiScript.Forms
 
         private void BtnTest_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrEmpty(TxtServer.Text) || String.IsNullOrEmpty(TxtUsername.Text) || String.IsNullOrEmpty(TxtPassword.Text))
+            if (String.IsNullOrEmpty(TxtServer.Text) || String.IsNullOrEmpty(TxtUsername.Text) || String.IsNullOrEmpty(TxtPassword.Text))
             {
                 MessageBox.Show("Server information cannot be empty.");
 

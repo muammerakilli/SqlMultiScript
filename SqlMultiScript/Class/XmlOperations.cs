@@ -247,7 +247,10 @@ namespace SqlMultiScript.Class
                 {
                     for (int i = 0; i < xmlNode.ChildNodes.Count; i++)
                     {
-                        if (xmlNode.ChildNodes[i].InnerText== text.Substring(0, text.IndexOf('.')))
+                        string dbname = text.Substring(0, text.IndexOf(']'));
+                        dbname = dbname.Remove(0, 1);
+
+                        if (xmlNode.ChildNodes[i].InnerText== dbname)
                         {
                             for (int j = 0; j < xmlNode.ChildNodes[i].Attributes.Count; j++)
                             {

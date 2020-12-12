@@ -7,9 +7,11 @@ using System.IO;
 using System.Windows.Forms;
 
 namespace SqlMultiScript.Forms
-{
+{   
+
     public partial class ExecF : Form
-    {
+    {        
+    
         public ExecF()
         {
             InitializeComponent();
@@ -54,6 +56,7 @@ namespace SqlMultiScript.Forms
             SqlText.SetKeywords(5, @"sys objects sysobjects ");
 
             #endregion
+                        
         }
 
 
@@ -137,7 +140,7 @@ namespace SqlMultiScript.Forms
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-
+                
             for (int i = 0; i < listViewdb.Items.Count; i++)
             {
 
@@ -148,8 +151,8 @@ namespace SqlMultiScript.Forms
 
                 if (deger.Length > 0)
                 {
-                    string dbname = listViewdb.Items[i].Text.Substring(listViewdb.Items[i].Text.IndexOf("dbo."), listViewdb.Items[i].Text.Length - listViewdb.Items[i].Text.IndexOf("dbo."));
-                    dbname = dbname.Remove(dbname.IndexOf("dbo."),4);
+                    string dbname = listViewdb.Items[i].Text.Substring(listViewdb.Items[i].Text.IndexOf("]."), listViewdb.Items[i].Text.Length - listViewdb.Items[i].Text.IndexOf("]."));
+                    dbname = dbname.Remove(0,2);
 
                     if (!String.IsNullOrEmpty(dbname))
                     {
@@ -194,7 +197,7 @@ namespace SqlMultiScript.Forms
         {
             if (e.KeyCode == Keys.F5)
             {
-                toolStripButton2_Click(toolStripButton2, EventArgs.Empty);
+                toolStripButton2_Click(btn_execute, EventArgs.Empty);
             }
         }
     }

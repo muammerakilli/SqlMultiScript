@@ -37,7 +37,7 @@ namespace SqlMultiScript.Forms
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BtnCompile = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.btn_execute = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listViewdb = new System.Windows.Forms.ListView();
             this.DbName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -92,7 +92,7 @@ namespace SqlMultiScript.Forms
             this.toolStrip1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.BtnCompile,
-            this.toolStripButton2});
+            this.btn_execute});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1514, 26);
@@ -109,16 +109,16 @@ namespace SqlMultiScript.Forms
             this.BtnCompile.Text = "Parse Script";
             this.BtnCompile.Click += new System.EventHandler(this.BtnCompile_Click);
             // 
-            // toolStripButton2
+            // btn_execute
             // 
-            this.toolStripButton2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.toolStripButton2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.toolStripButton2.Image = global::SqlMultiScript.Properties.Resources.next;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(130, 23);
-            this.toolStripButton2.Text = "Execute Now(F5)";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            this.btn_execute.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btn_execute.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btn_execute.Image = global::SqlMultiScript.Properties.Resources.next;
+            this.btn_execute.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_execute.Name = "btn_execute";
+            this.btn_execute.Size = new System.Drawing.Size(130, 23);
+            this.btn_execute.Text = "Execute Now(F5)";
+            this.btn_execute.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // groupBox1
             // 
@@ -350,7 +350,7 @@ namespace SqlMultiScript.Forms
         private System.Windows.Forms.ComboBox CmbListName;
         private System.Windows.Forms.ListView listViewdb;
         private System.Windows.Forms.ToolStripButton BtnCompile;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton btn_execute;
         private System.Windows.Forms.ColumnHeader DbName;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button BtnAddFile;
